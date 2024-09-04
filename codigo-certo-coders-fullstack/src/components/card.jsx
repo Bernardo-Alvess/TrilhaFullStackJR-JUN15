@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function Card() {
     const location = useLocation();
@@ -14,10 +14,13 @@ export function Card() {
                 <div className="flex  flex-col items-center pt-2">
                     <h1 className="font-bold">Nome do projeto</h1>
                     {path.startsWith('/projects') ? (
-                        <button className="h-7 md:h-[50px] w-full bg-orange-500 hover:bg-orange-700 font-medium text-sm transition-colors">EDITAR</button>
+                        <Link className="h-7 md:h-[50px] w-full bg-orange-500 hover:bg-orange-700 font-medium text-sm transition-colors flex items-center justify-center">EDITAR</Link>
                     ) : (<div></div>)}
 
-                    <button className="h-7 md:h-[50px] w-full bg-red-coders hover:bg-red-600 transition-colors rounded-b-lg font-medium text-sm">ACESSAR</button>
+                    <Link
+                        to={'/project'}
+                        className="h-7 md:h-[50px] w-full bg-red-coders hover:bg-red-600 transition-colors rounded-b-lg font-medium text-sm flex items-center justify-center"
+                    >ACESSAR</Link>
                 </div>
             </div>
         </>
