@@ -14,10 +14,10 @@ export function Card() {
                 <div className="flex  flex-col items-center pt-2">
                     <h1 className="font-bold">Nome do projeto</h1>
                     {path.startsWith('/projects') ? (
-                        <button className="h-7 md:h-[50px] w-full bg-orange-500 hover:bg-orange-700 font-medium text-sm transition-colors">ACESSAR</button>
+                        <button className="h-7 md:h-[50px] w-full bg-orange-500 hover:bg-orange-700 font-medium text-sm transition-colors">EDITAR</button>
                     ) : (<div></div>)}
 
-                    <button className="h-7 md:h-[50px] w-full bg-red-coders hover:bg-red-600 transition-colors rounded-b-lg font-medium text-sm">EDITAR</button>
+                    <button className="h-7 md:h-[50px] w-full bg-red-coders hover:bg-red-600 transition-colors rounded-b-lg font-medium text-sm">ACESSAR</button>
                 </div>
             </div>
         </>
