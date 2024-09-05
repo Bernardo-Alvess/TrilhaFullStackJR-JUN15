@@ -5,6 +5,7 @@ import { Projects } from './pages/projects'
 import { Login } from './pages/login'
 import { SignUp } from './pages/sign-up'
 import { Project } from './pages/project'
+import { EditProjet } from './pages/edit-projects'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: '/project',
     element: <Project />
+  },
+  {
+    path: '/edit',
+    element: <EditProjet />
   }
 ])
 

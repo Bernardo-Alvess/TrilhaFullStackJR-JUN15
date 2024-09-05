@@ -14,7 +14,9 @@ export function Card() {
                 <div className="flex  flex-col items-center pt-2">
                     <h1 className="font-bold">Nome do projeto</h1>
                     {path.startsWith('/projects') ? (
-                        <Link className="h-7 md:h-[50px] w-full bg-orange-500 hover:bg-orange-700 font-medium text-sm transition-colors flex items-center justify-center">EDITAR</Link>
+                        <Link
+                            to={'/edit'}
+                            className="h-7 md:h-[50px] w-full bg-orange-500 hover:bg-orange-700 font-medium text-sm transition-colors flex items-center justify-center">EDITAR</Link>
                     ) : (<div></div>)}
 
                     <Link
