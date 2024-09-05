@@ -1,9 +1,17 @@
+import { SqlLiteUserRepository } from "@repositories/implementation/SqlLiteUserRepository";
 import { Request, Response } from "express";
 
-export class UserController {
-    constructor(private readonly userRepository: UserRepository) { }
+class UserController {
+    constructor(
+        private readonly userRepository: UserRepository
+    ) { }
 
-    async createUser(req: Request, res: Response) {
+    createUser(req: Request, res: Response) {
 
     }
 }
+
+const repository = new SqlLiteUserRepository()
+const userController = new UserController(repository)
+
+export { userController }
