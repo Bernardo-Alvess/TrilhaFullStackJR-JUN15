@@ -1,13 +1,24 @@
+import { User } from "@entities/UserEntity";
 import { SqlLiteUserRepository } from "@repositories/implementation/SqlLiteUserRepository";
 import { Request, Response } from "express";
 
 class UserController {
     constructor(
-        private readonly userRepository: UserRepository
+        private readonly userRepository: SqlLiteUserRepository
     ) { }
 
-    createUser(req: Request, res: Response) {
+    async createUser(req: Request, res: Response): Promise<Response> {
+        const { name, email, password } = req.body;
 
+        const newUser = new User({ name, email, password })
+
+        try {
+            this.userRepository.createUser(newUser)
+            return res.status(201)
+        } catch (e) {
+            if (e instanceof Error) res.json({ msg: e.message })
+            return res.json({ msg: 'unknown error' })
+        }
     }
 }
 
