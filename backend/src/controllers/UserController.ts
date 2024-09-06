@@ -1,6 +1,7 @@
 import { User } from "@entities/UserEntity";
 import { SqlLiteUserRepository } from "@repositories/implementation/SqlLiteUserRepository";
 import { Request, Response } from "express";
+import { hashPassword } from "src/util/hashPassword";
 
 class UserController {
     constructor(
@@ -8,8 +9,9 @@ class UserController {
     ) { }
 
     async createUser(req: Request, res: Response): Promise<Response> {
-        const { name, email, password } = req.body;
-        //TODO: implementar a criptografação de senha, atualmente salvando como plain text
+        const { name, email, password: plainTextPassword } = req.body;
+
+        const password = hashPassword(plainTextPassword);
         const newUser = new User({ name, email, password })
 
         try {
