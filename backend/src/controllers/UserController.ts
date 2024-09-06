@@ -1,6 +1,9 @@
+import { Request, Response } from "express";
+import Cookies from "cookies";
+
 import { User } from "@entities/UserEntity";
 import { SqlLiteUserRepository } from "@repositories/implementation/SqlLiteUserRepository";
-import { Request, Response } from "express";
+import { createToken } from "src/util/createToken";
 import { hashPassword } from "src/util/hashPassword";
 
 class UserController {
@@ -16,7 +19,11 @@ class UserController {
 
         try {
             this.userRepository.createUser(newUser)
-            return res.status(201).json({ id: newUser.id })
+            const token = createToken(newUser.id)
+            return res.status(201).json({
+                id: newUser.id,
+                token,
+            })
         } catch (e) {
             if (e instanceof Error) res.json({ msg: e.message })
             return res.json({ msg: 'unknown error' })
