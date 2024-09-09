@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 import { createToken } from "src/util/createToken";
 
-export class AuthController {
+class AuthController {
     constructor(
         private readonly userRepository: SqlLiteUserRepository
     ) { }

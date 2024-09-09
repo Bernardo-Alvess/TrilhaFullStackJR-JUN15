@@ -4,7 +4,7 @@ import 'dotenv/config'
 const token = process.env.TOKEN_SECRET!
 
 const createToken = (id: string) => {
-    return jwt.sign({ id }, token, {
+    return jwt.sign({ id: id }, token, {
         expiresIn: 3 * 24 * 60 * 60
     })
 }

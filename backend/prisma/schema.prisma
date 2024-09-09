@@ -22,7 +22,8 @@ model project {
   id          String @id @default(uuid())
   title       String
   description String
-  image       Bytes
+  image_path  String
+  filename    String
   owner       user   @relation(fields: [user_id], references: [id])
   user_id     String
 }

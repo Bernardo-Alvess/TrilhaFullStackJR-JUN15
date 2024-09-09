@@ -7,4 +7,4 @@ authRoutes.post('/login', (req, res) => {
     authController.loginUser(req, res)
 })
 
-export { authRoutes }
+export { authRoutes }   
