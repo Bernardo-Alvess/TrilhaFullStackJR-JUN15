@@ -22,7 +22,7 @@ export function SignUp() {
             const { token } = await createUser({ ...data })
             const expirationDate = 15 * 24 * 60 * 60 * 1000;
             cookie.set('jwt-token', token, { path: '/', maxAge: expirationDate })
-            navigate('/projects')
+            navigate('/')
         } catch (e) {
             console.error(e)
         }

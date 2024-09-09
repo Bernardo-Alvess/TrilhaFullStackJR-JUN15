@@ -1,8 +1,7 @@
 import { X } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function Modal({ isOpen, onClose }) {
-    const navigate = useNavigate();
 
     if (!isOpen) return null;
 

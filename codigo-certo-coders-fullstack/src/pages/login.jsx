@@ -22,7 +22,7 @@ export function Login() {
             const { token } = await loginUser({ ...data })
             const expirationDate = 15 * 24 * 60 * 1000
             cookie.set('jwt-token', token, { maxAge: expirationDate })
-            navigate('/projects')
+            navigate('/')
 
         } catch (e) {
             console.error(e)
