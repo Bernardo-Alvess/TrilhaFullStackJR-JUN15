@@ -1,7 +1,7 @@
 import { Cards } from "../components/cards";
 import { Header } from "../components/header";
 
-export function Projects() {
+export function UserProjects() {
     return (
         <>
             <Header />

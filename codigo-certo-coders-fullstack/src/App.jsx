@@ -1,11 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { Home } from './pages/home'
-import { Projects } from './pages/projects'
+import { UserProjects } from './pages/UserProjects'
 import { Login } from './pages/login'
 import { SignUp } from './pages/sign-up'
 import { Project } from './pages/project'
 import { EditProjet } from './pages/edit-projects'
+import { ProtectedRoute } from './auth/protectedRoute'
 
 const router = createBrowserRouter([
   {
@@ -13,8 +14,8 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: '/projects',
-    element: <Projects />
+    path: '/user-projects',
+    element: <ProtectedRoute element={<UserProjects />} />
   },
   {
     path: '/login',
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/edit',
-    element: <EditProjet />
+    element: <ProtectedRoute element={<EditProjet />} />
   }
 ])
 

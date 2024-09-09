@@ -33,7 +33,7 @@ export function Modal({ isOpen, onClose }) {
                             Home
                         </Link>
                         <Link
-                            to='/projects'
+                            to='/user-projects'
                             className='p-4 bg-black w-full rounded-lg text-center'
                         >Ver seus projetos</Link>
                         <Link

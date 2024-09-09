@@ -14,6 +14,6 @@ export async function createUser({ name, email, password }) {
 
     const data = await response.json()
 
-    return { userId: data.id }
+    return { userId: data.id, token: data.token }
 
 }

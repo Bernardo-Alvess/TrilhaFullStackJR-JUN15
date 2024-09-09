@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { Header } from "../components/header";
 import { createUser } from "../http/create-user";
+import Cookies from 'universal-cookie'
 
 export function SignUp() {
+    const navigate = useNavigate()
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
@@ -12,8 +16,13 @@ export function SignUp() {
             password: formData.get('password'),
         }
 
+        const cookie = new Cookies()
+
         try {
-            await createUser(...data)
+            const { token } = await createUser({ ...data })
+            const expirationDate = 15 * 24 * 60 * 60 * 1000;
+            cookie.set('jwt-token', token, { path: '/', maxAge: expirationDate })
+            navigate('/projects')
         } catch (e) {
             console.error(e)
         }
